@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { TextField, Typography, Button, Paper } from "@mui/material";
-import useStyles from "./FormStyles";
 import FileBase from "react-file-base64"; //Used for image
 import { useDispatch, useSelector } from "react-redux";
 import { createPost, updatePost } from "../../actions/posts";
@@ -39,6 +38,7 @@ const Form = ({ currentId, setcurrentId }) => {
       dispatch(createPost(postData));
       handleClear();
     }
+    window.location.reload()
   };
 
   const handleClear = () => {
@@ -52,7 +52,6 @@ const Form = ({ currentId, setcurrentId }) => {
     })
   };
 
-  const classes = useStyles();
   return (
     <Paper style={{ padding: "20px" }}>
       <form
